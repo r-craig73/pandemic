@@ -11,12 +11,18 @@ export class Gameboard {
       }
     this.grid.push(row);
     }
+    console.log(this.grid);
+    let masterGrid = this.grid;
+    return masterGrid;
   }
 
   infectStart() {
-    let randIndex = Math.floor(Math.random() * 8);
-    console.log(randIndex);
-    this.row.splice(randIndex, 1);
+    let masterGrid = this.makeGrid();
+    console.log("master grid " + masterGrid);
+    let rndI = Math.floor(Math.random() * 8);
+    console.log(rndI);
+    this.grid[0][rndI] = 1;
+    console.log(this.grid[0]);
   }
 
 }
