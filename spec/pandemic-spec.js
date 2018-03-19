@@ -1,19 +1,19 @@
 import { Gameboard } from './../src/pandemic.js'
 
 describe('Gameboard', function() {
-    let testRow = new Gameboard();
-    let exampleRow = testRow.makeRow();
 
-  beforeEach(function() {
-   });
+  // beforeEach(function() {
+  //  });
 
-   it('should create a row array containing 9 0s', () => {
-     let exampleRow = testRow.makeRow();
-     expect(exampleRow).toBeArrayOfSize(9);
+   it('should create 9 rows containing 9 0s', () => {
+     let game = new Gameboard();
+     game.makeGrid();
+     console.log(game.grid);
+     expect(game.grid[0]).toBeArrayOfSize(9);
    })
 
-   it('should add a 1 at a random index in the row', () => {
-     exampleRow.infectStart();
-     expect(exampleRow).toContain(1);
-   })
+  //  it('should add a 1 at a random index in the top row', () => {
+  //   testRow.infectStart();
+  //    expect(testRow.).toContain(1);
+  //  })
 })

@@ -1,20 +1,22 @@
 export class Gameboard {
-  constructor(row) {
-    this.row = row;
+  constructor() {
+    this.grid = [];
   }
 
-  makeRow() {
+  makeGrid() {
+    for (let i = 0; i < 9; i++) {
     let row = [];
-    for (let i = 0; i < 9; i++){
-      row.push(0);
+      for (let j = 0; j < 9; j++){
+        row.push(0);
+      }
+    this.grid.push(row);
     }
-    console.log(row);
-    return row;
   }
 
   infectStart() {
-
-    
+    let randIndex = Math.floor(Math.random() * 8);
+    console.log(randIndex);
+    this.row.splice(randIndex, 1);
   }
 
 }
