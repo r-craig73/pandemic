@@ -13,4 +13,9 @@ describe('Gameboard', function() {
     game.infectStart();
     expect(game.grid[0]).toContain(1);
    })
+
+   it('should be a test to call infectSpread', () => {
+     let game = new Gameboard();
+     game.infectSpread();
+   })
 })

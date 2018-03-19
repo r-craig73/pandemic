@@ -11,20 +11,27 @@ export class Gameboard {
       }
     this.grid.push(row);
     }
-    console.log(this.grid);
     let masterGrid = this.grid;
     return masterGrid;
   }
 
   infectStart() {
-    let masterGrid = this.makeGrid();
-    let rndI = Math.floor(Math.random() * 8);
-    this.grid[0][rndI] = 1;
-  }
+     let masterGrid = this.makeGrid();
+     let rndI = Math.floor(Math.random() * 8);
+     this.grid[0][rndI] = 1;
+     console.log("infected grid start : " + masterGrid);
+   }
 
-  infectSpread() {
+   infect() {
+     let infectSpreadGrid = this.grid;
+     let rndI = Math.floor(Math.random() * 8);
+     this.grid[0][rndI] = 1;
 
-    for (let i = 0; i < master)
-  }
+   infectSpread() {
+     let infectSpreadGrid = this.grid;
+     setInterval(() => {
+      this.infect() }
+     }, 1000);
+   }
 
 }
