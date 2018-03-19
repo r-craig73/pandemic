@@ -18,11 +18,13 @@ export class Gameboard {
 
   infectStart() {
     let masterGrid = this.makeGrid();
-    console.log("master grid " + masterGrid);
     let rndI = Math.floor(Math.random() * 8);
-    console.log(rndI);
     this.grid[0][rndI] = 1;
-    console.log(this.grid[0]);
+  }
+
+  infectSpread() {
+
+    for (let i = 0; i < master)
   }
 
 }
