@@ -1,21 +1,35 @@
 import { Gameboard } from './../src/pandemic.js'
 
-describe('Gameboard', function() {
+describe('Gameboard', function () {
 
-   it('should create 9 rows containing 9 0s', () => {
-     let game = new Gameboard();
-     game.makeGrid();
-     expect(game.grid[0]).toBeArrayOfSize(9);
-   })
+  let timerCallback;
 
-   it('should add a 1 at a random index in the top row', () => {
-    let game = new Gameboard();
-    game.infectStart();
-    expect(game.grid[0]).toContain(1);
-   })
+  beforeEach(function() {
+  timerCallback = jasmine.createSpy("timerCallback");
+  jasmine.clock().install();
+  })
 
-   it('should be a test to call infectSpread', () => {
-     let game = new Gameboard();
-     game.infectSpread();
-   })
+  afterEach(function() {
+  jasmine.clock().uninstall();
+  })
+
+
+  it('should create 9 rows containing 9 0s', () => {
+    let game = new Gameboard()
+    game.makeGrid()
+    expect(game.grid[0]).toBeArrayOfSize(9)
+  })
+
+  it("causes a timeout to be called", function() {
+  setTimeout(function() {
+    timerCallback()
+  }, 100)
+
+  expect(timerCallback).not.toHaveBeenCalled()
+
+  jasmine.clock().tick(101)
+
+  expect(timerCallback).toHaveBeenCalled()
+  })
+
 })
