@@ -24,7 +24,7 @@ export class Gameboard {
      console.log("infected grid start : " + masterGrid[0]);
    }
 
-   getInfectedCells() {
+   infectCells() {
      let masterGridInfected = this.grid;
      let rndJ = Math.floor(Math.random() * 8)
        if (this.grid[0][rndI] === 1){
@@ -34,10 +34,24 @@ export class Gameboard {
          console.log("else log");
        }
      let sum = this.grid[0].reduce((a, b) => a+b, 0);
-     // console.log(rndJ);
-     // console.log(rndI);
-     // console.log("masterGrid[0] = " + sum);
-     // console.log("masterGridInfected: " + masterGridInfected[0]);
-
+     console.log(rndJ);
+     console.log(rndI);
+     console.log("masterGrid[0] = " + sum);
+     console.log("masterGridInfected: " + masterGridInfected[0]);
    }
+
+   infectNextCell() {
+     let masterGridInfectNext = this.grid;
+     setInterval(function(){
+       for (let i = 0; i < 9; i++) {
+         if(masterGridInfectNext[0][0] === 0) {
+           this.grid[0][0] = 1;
+         } else if(masterGridInfectNext[0][1] === 0) {
+           this.grid[0][1] = 1;
+         }
+       }
+     })
+   }
+
+
 }

@@ -18,6 +18,8 @@ describe('Gameboard', function () {
     let game = new Gameboard()
     game.makeGrid()
     expect(game.grid[0]).toBeArrayOfSize(9)
+    game.infectStart()
+    game.infectCells()
   })
 
   it("causes a timeout to be called", function() {
